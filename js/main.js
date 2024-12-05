@@ -15,7 +15,7 @@
 
   // Use the Fetch API to load info boxes from the API
   function loadInfoBoxes() {
-    fetch("https://swiftpixel.com/earbud/api/infoboxes")
+    fetch("https//swiftpixel.com/earbud/api/infoboxes")
       .then((response) => response.json())
       .then((data) => {
         data.forEach((infoBox, index) => {
@@ -38,7 +38,11 @@
           selected.appendChild(imageElement);
         });
       })
-      .catch((error) => console.error("Error fetching info boxes:", error));
+      .catch((error) => {
+        console.error("Error fetching material info:", error);
+        materialList.innerHTML = "<p>Failed to load materials. Please try again later.</p>";
+    });
+    
   }
   loadInfoBoxes();
 
